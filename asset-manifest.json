@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/danny-wants-out-game-with-phases/static/css/main.f855e6bc.css",
+    "main.js": "/danny-wants-out-game-with-phases/static/js/main.616dbc45.js",
+    "static/js/787.06dc9a64.chunk.js": "/danny-wants-out-game-with-phases/static/js/787.06dc9a64.chunk.js",
+    "static/media/shadow_dog.png": "/danny-wants-out-game-with-phases/static/media/shadow_dog.76bd37a60b529bc5bcb8.png",
+    "static/media/layer-3.png": "/danny-wants-out-game-with-phases/static/media/layer-3.a3c7cc49b813898743ad.png",
+    "static/media/layer-4.png": "/danny-wants-out-game-with-phases/static/media/layer-4.f42781d7b70acfa640a6.png",
+    "static/media/layer-2.png": "/danny-wants-out-game-with-phases/static/media/layer-2.31a97b4078e34d1590ef.png",
+    "static/media/layer-1.png": "/danny-wants-out-game-with-phases/static/media/layer-1.aaa1ba1984e59dbf45ab.png",
+    "static/media/layer-5.png": "/danny-wants-out-game-with-phases/static/media/layer-5.d641f7f5cb13dab9cf9f.png",
+    "index.html": "/danny-wants-out-game-with-phases/index.html",
+    "main.f855e6bc.css.map": "/danny-wants-out-game-with-phases/static/css/main.f855e6bc.css.map",
+    "main.616dbc45.js.map": "/danny-wants-out-game-with-phases/static/js/main.616dbc45.js.map",
+    "787.06dc9a64.chunk.js.map": "/danny-wants-out-game-with-phases/static/js/787.06dc9a64.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.616dbc45.js"
+  ]
+}
