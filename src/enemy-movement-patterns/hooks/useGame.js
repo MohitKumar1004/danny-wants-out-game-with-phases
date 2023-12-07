@@ -37,13 +37,26 @@ export default function useGame({ canva }) {
                 }
                 this.frame = 0
                 this.flapSpeed = Math.floor(Math.random() * 5) + 1
+                this.angle = 0
+                this.angleSpeed = Math.random() * 0.2
+                this.curve = Math.random() * 7
             }
 
             update() {
                 // this.x += this.speed.x
                 // this.y += this.speed.y
-                this.x += this.speed.x + Math.random() * 5 - 2.5
-                this.y += this.speed.y + Math.random() * 5 - 2.5
+
+                // this.x += this.speed.x + Math.random() * 5 - 2.5
+                // this.y += this.speed.y + Math.random() * 5 - 2.5
+
+                this.x -= this.speed.x
+                this.y += this.curve * Math.sin(this.angle)
+                this.angle += this.angleSpeed
+
+                if(this.x + this.width < 0) {
+                    this.x = CANVAS_WIDTH
+                }
+                // this.x += this.speed.x
                 if(gameFrame % this.flapSpeed === 0) {
                     this.frame > 4 ? this.frame = 0 : this.frame ++
                 }
@@ -57,17 +70,17 @@ export default function useGame({ canva }) {
         }
 
         for(let i=0;i<numberOfEnemies;i++) {
-            enemiesArray.push(new Enemy({
-                speed: {
-                    x: Math.random() * 4 - 2,
-                    y: Math.random() * 4 - 2
-                },
-                sprite: {
-                    width: 293,
-                    height: 155
-                },
-                path: enemypath1
-            }))
+            // enemiesArray.push(new Enemy({
+            //     speed: {
+            //         x: Math.random() * 4 - 2,
+            //         y: Math.random() * 4 - 2
+            //     },
+            //     sprite: {
+            //         width: 293,
+            //         height: 155
+            //     },
+            //     path: enemypath1
+            // }))
             enemiesArray.push(new Enemy({
                 speed: {
                     x: Math.random() * 4 + 1,
