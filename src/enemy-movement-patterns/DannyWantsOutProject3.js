@@ -1,5 +1,4 @@
-import React,{ useEffect, useRef } from 'react'
-import { GameCanvas } from './styles/GameCanvas'
+import React from 'react'
 import { StyledWrapper } from './styles/StyledWrapper';
 import Canvas1 from './canvas/Canvas1';
 import Canvas2 from './canvas/Canvas2';

@@ -37,9 +37,9 @@ export default function useGame({ canva }) {
                 }
                 this.frame = 0
                 this.flapSpeed = Math.floor(Math.random() * 5) + 1
-                this.angle = 0
-                this.angleSpeed = Math.random() * 0.2
-                this.curve = Math.random() * 7
+                this.angle = Math.random() * 500
+                this.angleSpeed = Math.random() * 0.5 + 0.5
+                // this.curve = Math.random() * 150 + 25
             }
 
             update() {
@@ -49,12 +49,34 @@ export default function useGame({ canva }) {
                 // this.x += this.speed.x + Math.random() * 5 - 2.5
                 // this.y += this.speed.y + Math.random() * 5 - 2.5
 
-                this.x -= this.speed.x
-                this.y += this.curve * Math.sin(this.angle)
+                // // Circular movement
+                // // sin(angle) = opposite/hypotenuse
+                // // cos(angle) = adjacent/hypotenuse
+                // this.x = this.curve * Math.sin(this.angle * Math.PI/180) + CANVAS_WIDTH/2 - this.width/2
+                // this.y = this.curve * Math.cos(this.angle * Math.PI/180) + CANVAS_HEIGHT/2 - this.height/2
+
+                // // sin(angle) = opposite/hypotenuse
+                // // cos(angle) = adjacent/hypotenuse
+                // this.x = this.curve * Math.sin(this.angle * Math.PI/90) + CANVAS_WIDTH/2 - this.width/2
+                // this.y = this.curve * Math.cos(this.angle * Math.PI/180) + CANVAS_HEIGHT/2 - this.height/2
+
+                // sin(angle) = opposite/hypotenuse
+                // cos(angle) = adjacent/hypotenuse
+                this.x = CANVAS_WIDTH/2 * Math.cos(this.angle * Math.PI/200) + CANVAS_WIDTH/2 - this.width/2
+                this.y = CANVAS_HEIGHT/2 * Math.sin(this.angle * Math.PI/300) + CANVAS_HEIGHT/2 - this.height/2
+
                 this.angle += this.angleSpeed
 
                 if(this.x + this.width < 0) {
                     this.x = CANVAS_WIDTH
+                }
+                
+                if(this.y + this.height < 0) {
+                    this.y = CANVAS_HEIGHT
+                }
+
+                if(this.y > CANVAS_HEIGHT) {
+                    this.y = -this.height
                 }
                 // this.x += this.speed.x
                 if(gameFrame % this.flapSpeed === 0) {
@@ -98,10 +120,10 @@ export default function useGame({ canva }) {
                     y: Math.random() * 4 + 1
                 },
                 sprite: {
-                    width: 266,
-                    height: 188
+                    width: 218,
+                    height: 177
                 },
-                path: enemypath2
+                path: enemypath3
             }))
             // enemiesArray.push(new Enemy({
             //     sprite: {

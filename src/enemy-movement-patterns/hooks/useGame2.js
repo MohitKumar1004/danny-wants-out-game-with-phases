@@ -27,8 +27,8 @@ export default function useGame({ canva }) {
                     width: sprite.width,
                     height: sprite.height
                 }
-                this.width = this.sprite.width / 2.5
-                this.height = this.sprite.height / 2.5
+                this.width = this.sprite.width / 2
+                this.height = this.sprite.height / 2
                 this.x = Math.random() * (CANVAS_WIDTH - this.width)
                 this.y = Math.random() * (CANVAS_HEIGHT - this.height)
                 this.speed = {
@@ -55,6 +55,14 @@ export default function useGame({ canva }) {
 
                 if(this.x + this.width < 0) {
                     this.x = CANVAS_WIDTH
+                }
+                
+                if(this.y + this.height < 0) {
+                    this.y = CANVAS_HEIGHT
+                }
+
+                if(this.y > CANVAS_HEIGHT) {
+                    this.y = -this.height
                 }
                 // this.x += this.speed.x
                 if(gameFrame % this.flapSpeed === 0) {

@@ -53,8 +53,9 @@ export default function useGame({ canva }) {
                 if(this.x + this.width < 0) {
                     this.x = CANVAS_WIDTH
                 }
-                if(this.y + this.height < 0) {
-                    this.y = CANVAS_HEIGHT
+                
+                if(this.x > CANVAS_WIDTH) {
+                    this.x = -this.width
                 }
                 // this.x += this.speed.x
                 if(gameFrame % this.flapSpeed === 0) {
