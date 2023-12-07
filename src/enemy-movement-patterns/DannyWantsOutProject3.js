@@ -1,24 +1,18 @@
 import React,{ useEffect, useRef } from 'react'
 import { GameCanvas } from './styles/GameCanvas'
 import { StyledWrapper } from './styles/StyledWrapper';
-import useGame from './hooks/useGame';
+import Canvas1 from './canvas/Canvas1';
+import Canvas2 from './canvas/Canvas2';
+import Canvas3 from './canvas/Canvas3';
+import Canvas4 from './canvas/Canvas4';
 
 export default function DannyWantsOutProject3() {
-
-    const canva = useRef(null);
-    const selectAnimation = useRef(null);
-
-    const [initGame] = useGame({ canva })
-
-    useEffect(() => {
-        initGame();
-    },[])
-
     return (
         <StyledWrapper>
-            <GameCanvas ref={canva}>
-                
-            </GameCanvas>
+            <Canvas1/>
+            <Canvas2/>
+            <Canvas3/>
+            <Canvas4/>
         </StyledWrapper>
     )
 }
