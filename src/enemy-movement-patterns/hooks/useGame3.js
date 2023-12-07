@@ -4,7 +4,7 @@ import enemypath2 from '../imgs/enemy2.png'
 import enemypath3 from '../imgs/enemy3.png'
 import enemypath4 from '../imgs/enemy4.png'
 
-export default function useGame({ canva }) {
+export default function useGame3({ canva }) {
 
     const initGame = () => {
         const can = canva.current
@@ -15,7 +15,7 @@ export default function useGame({ canva }) {
         
         var gameFrame = 0
 
-        const numberOfEnemies = 100
+        const numberOfEnemies = 30
 
         const enemiesArray = []
 
@@ -38,7 +38,7 @@ export default function useGame({ canva }) {
                 this.frame = 0
                 this.flapSpeed = Math.floor(Math.random() * 5) + 1
                 this.angle = Math.random() * 500
-                this.angleSpeed = Math.random() * 0.5 + 0.5
+                this.angleSpeed = Math.random() * 1.5 + 0.5
                 // this.curve = Math.random() * 150 + 25
             }
 
@@ -62,8 +62,8 @@ export default function useGame({ canva }) {
 
                 // sin(angle) = opposite/hypotenuse
                 // cos(angle) = adjacent/hypotenuse
-                this.x = CANVAS_WIDTH/2 * Math.cos(this.angle * Math.PI/200) + CANVAS_WIDTH/2 - this.width/2
-                this.y = CANVAS_HEIGHT/2 * Math.sin(this.angle * Math.PI/300) + CANVAS_HEIGHT/2 - this.height/2
+                this.x = (CANVAS_WIDTH/2 - this.width/2) * Math.cos(this.angle * Math.PI/200) + CANVAS_WIDTH/2 - this.width/2
+                this.y = (CANVAS_HEIGHT/2 - this.height/2) * Math.sin(this.angle * Math.PI/300) + CANVAS_HEIGHT/2 - this.height/2
 
                 this.angle += this.angleSpeed
 

@@ -12,7 +12,7 @@ export default function useGame({ canva }) {
         
         var gameFrame = 0
 
-        const numberOfEnemies = 100
+        const numberOfEnemies = 30
 
         const enemiesArray = []
 
