@@ -20,21 +20,21 @@ export default function useGame({ canva }) {
         const enemiesArray = []
 
         class Enemy {
-            constructor({ path }) {
+            constructor({ speed, sprite, path }) {
                 this.image = new Image()
                 this.image.src = path
                 this.sprite = {
-                    width: 293,
-                    height: 155
+                    width: sprite.width,
+                    height: sprite.height
                 }
                 this.width = this.sprite.width / 2.5
                 this.height = this.sprite.height / 2.5
                 this.x = Math.random() * (CANVAS_WIDTH - this.width)
                 this.y = Math.random() * (CANVAS_HEIGHT - this.height)
-                // this.speed = {
-                //     x: Math.random() * 4 - 2,
-                //     y: Math.random() * 4 - 2
-                // }
+                this.speed = {
+                    x: speed.x,
+                    y: speed.y
+                }
                 this.frame = 0
                 this.flapSpeed = Math.floor(Math.random() * 5) + 1
             }
@@ -42,8 +42,8 @@ export default function useGame({ canva }) {
             update() {
                 // this.x += this.speed.x
                 // this.y += this.speed.y
-                this.x += Math.random() * 5 - 2.5
-                this.y += Math.random() * 5 - 2.5
+                this.x += this.speed.x + Math.random() * 5 - 2.5
+                this.y += this.speed.y + Math.random() * 5 - 2.5
                 if(gameFrame % this.flapSpeed === 0) {
                     this.frame > 4 ? this.frame = 0 : this.frame ++
                 }
@@ -57,7 +57,42 @@ export default function useGame({ canva }) {
         }
 
         for(let i=0;i<numberOfEnemies;i++) {
-            enemiesArray.push(new Enemy({ path: enemypath1 }))
+            enemiesArray.push(new Enemy({
+                speed: {
+                    x: Math.random() * 4 - 2,
+                    y: Math.random() * 4 - 2
+                },
+                sprite: {
+                    width: 293,
+                    height: 155
+                },
+                path: enemypath1
+            }))
+            enemiesArray.push(new Enemy({
+                speed: {
+                    x: Math.random() * 4 + 1,
+                    y: Math.random() * 4 + 1
+                },
+                sprite: {
+                    width: 266,
+                    height: 188
+                },
+                path: enemypath2
+            }))
+            // enemiesArray.push(new Enemy({
+            //     sprite: {
+            //         width: 293,
+            //         height: 155
+            //     },
+            //     path: enemypath1
+            // }))
+            // enemiesArray.push(new Enemy({
+            //     sprite: {
+            //         width: 293,
+            //         height: 155
+            //     },
+            //     path: enemypath1
+            // }))
         }
 
         const animate = () => {
