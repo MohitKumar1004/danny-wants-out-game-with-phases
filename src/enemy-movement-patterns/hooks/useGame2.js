@@ -1,8 +1,5 @@
 /** @type {HTMLCanvasElement} */
-import enemypath1 from '../imgs/enemy1.png'
 import enemypath2 from '../imgs/enemy2.png'
-import enemypath3 from '../imgs/enemy3.png'
-import enemypath4 from '../imgs/enemy4.png'
 
 export default function useGame({ canva }) {
 
