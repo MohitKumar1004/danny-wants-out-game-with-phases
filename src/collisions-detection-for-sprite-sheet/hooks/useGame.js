@@ -1,4 +1,5 @@
 import boomImage from '../imgs/boom.png'
+import boomAudio from '../audios/boom.wav'
 
 export default function useGame({ canva }) {
 
@@ -22,15 +23,19 @@ export default function useGame({ canva }) {
                 this.spriteHeight = 179
                 this.width = this.spriteWidth * 0.7
                 this.height = this.spriteHeight * 0.7
-                this.x = x - this.width * 0.5
-                this.y = y - this.height * 0.5
+                this.x = x
+                this.y = y
                 this.image = new Image()
                 this.image.src = boomImage
+                this.audio = new Audio()
+                this.audio.src = boomAudio
                 this.frame = 0
                 this.timer = 0
+                this.angle = Math.random() * 6.2
             }
             
             update() {
+                if(this.frame===0)this.audio.play()
                 ++this.timer
                 if(this.timer%10===0) {
                     this.frame++;
@@ -38,7 +43,11 @@ export default function useGame({ canva }) {
             }
 
             draw() {
-                draw_.drawImage(this.image, this.spriteWidth * this.frame, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height)
+                draw_.save()
+                draw_.translate(this.x, this.y)
+                draw_.rotate(this.angle)
+                draw_.drawImage(this.image, this.spriteWidth * this.frame, 0, this.spriteWidth, this.spriteHeight, 0 - this.width * 0.5, 0 - this.height * 0.5, this.width, this.height)
+                draw_.restore()
             }
         }
 
